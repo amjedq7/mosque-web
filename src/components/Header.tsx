@@ -23,13 +23,16 @@ export default function Header({ onLanguageChange, subtitle }: { onLanguageChang
     onLanguageChange(newLang);
   };
 
+  const [isControlsOpen, setIsControlsOpen] = useState(false);
+
   const t = translations[lang as keyof typeof translations];
 
   return (
     <header>
-      <h1>{t.title}</h1>
-      <h4>{subtitle}</h4>
-      <div className="top-controls">
+      <button className="controls-toggle" onClick={() => setIsControlsOpen(!isControlsOpen)}>
+        ⚙️
+      </button>
+      <div className={`top-controls ${isControlsOpen ? 'open' : ''}`}>
         <button className="theme-switcher" onClick={toggleTheme}>🌓</button>
         <select className="language-select" onChange={changeLanguage} value={lang}>
           <option value="en">English</option>
@@ -37,6 +40,8 @@ export default function Header({ onLanguageChange, subtitle }: { onLanguageChang
           <option value="ar">العربية</option>
         </select>
       </div>
+      <h1>{t.title}</h1>
+      <h4>{subtitle}</h4>
     </header>
   );
 }
