@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<header><img src="images/mosque-logo.png" alt="Logo" class="logo">
+        <h1>MUSLIMSKA OBEC V TEPLICICH</h1>
+        <h4>Kontakt</h4>
+        <div class="top-controls">
+            <button id="theme-btn" class="theme-switcher" onclick="toggleTheme()"></button>
+            <select class="language-select" onchange="window.location.href=this.value">
+                <option value="contact.html">English</option>
+                <option value="contact-cz.html" selected>Čeština</option>
+                <option value="contact-ar.html">العربية</option>
+            </select>
+        </div>
+    </header>
+    <nav>
+        <a href="index-cz.html">Domů</a>
+        <a href="gallery-cz.html">Galerie</a>
+        <a href="contact-cz.html">Kontakt</a>
+    </nav>
+    <main>
+        <h2>Spojte se s námi</h2>
+        <p>Pokud máte jakékoli dotazy ohledně islámu nebo naší komunity, neváhejte nás kontaktovat.</p>
+        <p>E-mail: <a href="mailto:info@mosque.org">info@mosque.org</a></p>
+    </main>
+    <footer>&copy; 2026 Community Mosque</footer>
+<script>
+    const btn = document.getElementById("theme-btn");
+    function updateBtn() {
+        btn.innerHTML = document.documentElement.getAttribute("data-theme") === "light" ? "🌙" : "☀️";
+    }
+    function toggleTheme() {
+        const theme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateBtn();
+    }
+    // Initialize theme and button
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    updateBtn();
+</script>
+</body>
+</html>
