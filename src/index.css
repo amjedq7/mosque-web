@@ -132,7 +132,7 @@ header {
         padding: 15px;
     }
     footer {
-        position: relative;
+        position: relative !important;
         padding: 10px;
     }
 }
