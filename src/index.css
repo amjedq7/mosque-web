@@ -136,6 +136,9 @@ header {
         padding: 15px;
     }
     footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 10px;
         background: rgba(10, 10, 25, 0.2);
     }
@@ -230,6 +233,9 @@ nav a:hover {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 20px;
     color: var(--footer-text);
@@ -237,4 +243,5 @@ footer {
     background: var(--footer-bg);
     transition: background 0.3s, color 0.3s;
     width: 100%;
+    box-sizing: border-box;
 }
