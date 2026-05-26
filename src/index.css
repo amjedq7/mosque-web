@@ -230,6 +230,7 @@ nav a:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.1);
     flex: 1;
+    text-align: center;
 }
 
 footer {
