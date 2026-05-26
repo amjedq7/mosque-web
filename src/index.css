@@ -26,6 +26,11 @@
     --nav-border: rgba(0, 0, 0, 0.1);
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: var(--bg-img);
@@ -34,13 +39,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
     color: var(--text-color);
-    margin: 0;
     line-height: 1.8;
     font-size: 1.1rem;
     transition: background-image 0.5s ease-in-out, color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -132,7 +133,6 @@ header {
         padding: 15px;
     }
     footer {
-        position: relative !important;
         padding: 10px;
     }
 }
@@ -233,8 +233,4 @@ footer {
     background: var(--footer-bg);
     transition: background 0.3s, color 0.3s;
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
 }
