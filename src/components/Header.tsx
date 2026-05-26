@@ -27,7 +27,6 @@ export default function Header({ onLanguageChange, subtitle }: { onLanguageChang
 
   return (
     <header>
-      <img src="/images/mosque-logo.png" alt="Logo" className="logo" />
       <h1>{t.title}</h1>
       <h4>{subtitle}</h4>
       <div className="top-controls">
