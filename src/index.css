@@ -25,10 +25,10 @@
     --nav-bg: rgba(255, 255, 255, 0.6);
     --nav-border: rgba(0, 0, 0, 0.1);
 }
-
 html, body {
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -42,13 +42,16 @@ body {
     line-height: 1.8;
     font-size: 1.1rem;
     transition: background-image 0.5s ease-in-out, color 0.3s ease;
-    overflow-x: hidden;
 }
 
-.logo {
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+@media (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+    }
+    header {
+        padding: 0.5rem;
+        min-height: auto;
+    }
     height: 200px;
     width: auto;
     max-width: 25%;
