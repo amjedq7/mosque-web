@@ -1,8 +1,8 @@
-export default function GalleryPage() {
+export default function GalleryPage({ t }: { t: any }) {
   return (
     <>
-      <h2>Photo Gallery</h2>
-      <p>Coming soon: Images of our beautiful mosque.</p>
+      <h2>{t.galleryTitle}</h2>
+      <p>{t.galleryDesc}</p>
     </>
   );
 }

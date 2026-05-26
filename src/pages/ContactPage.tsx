@@ -1,9 +1,9 @@
-export default function ContactPage() {
+export default function ContactPage({ t }: { t: any }) {
   return (
     <>
-      <h2>Get in Touch</h2>
-      <p>If you have any questions about Islam or our community, please reach out to us.</p>
-      <p>Email: <a href="mailto:info@mosque.org" style={{color: 'var(--white)'}}>info@mosque.org</a></p>
+      <h2>{t.contactTitle}</h2>
+      <p>{t.contactDesc}</p>
+      <p>{t.email}: <a href="mailto:info@mosque.org" style={{color: 'var(--white)'}}>info@mosque.org</a></p>
     </>
   );
 }

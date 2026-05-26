@@ -1,0 +1,47 @@
+export const translations: Record<string, any> = {
+  en: {
+    title: "ISLAMIC FOUNDATION TEPLICE",
+    subtitle: "Mosque Portal",
+    home: "Home",
+    gallery: "Gallery",
+    contact: "Contact",
+    welcome: "Welcome to Our Mosque",
+    description: "Your place of peace, prayer, and community.",
+    footer: "© 2026 Community Mosque",
+    galleryTitle: "Photo Gallery",
+    galleryDesc: "Coming soon: Images of our beautiful mosque.",
+    contactTitle: "Get in Touch",
+    contactDesc: "If you have any questions about Islam or our community, please reach out to us.",
+    email: "Email"
+  },
+  cz: {
+    title: "MUSLIMSKÁ OBEC V TEPLICÍCH",
+    subtitle: "Mešita portál",
+    home: "Domů",
+    gallery: "Galerie",
+    contact: "Kontakt",
+    welcome: "Vítejte v naší mešitě",
+    description: "Vaše místo klidu, modlitby a komunity.",
+    footer: "© 2026 Komunitní mešita",
+    galleryTitle: "Fotogalerie",
+    galleryDesc: "Již brzy: Obrázky naší krásné mešity.",
+    contactTitle: "Kontaktujte nás",
+    contactDesc: "Pokud máte jakékoli dotazy ohledně islámu nebo naší komunity, neváhejte nás kontaktovat.",
+    email: "E-mail"
+  },
+  ar: {
+    title: "المركز الاسلامي في تبليتسه",
+    subtitle: "بوابة المسجد",
+    home: "الرئيسية",
+    gallery: "معرض الصور",
+    contact: "اتصل بنا",
+    welcome: "مرحباً بكم في مسجدنا",
+    description: "مكانكم للسلام، والصلاة، والمجتمع.",
+    footer: "© 2026 مسجد المجتمع",
+    galleryTitle: "معرض الصور",
+    galleryDesc: "قريباً: صور لمسجدنا الجميل.",
+    contactTitle: "تواصل معنا",
+    contactDesc: "إذا كان لديك أي أسئلة حول الإسلام أو مجتمعنا، يرجى التواصل معنا.",
+    email: "البريد الإلكتروني"
+  }
+};
