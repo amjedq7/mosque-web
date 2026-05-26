@@ -25,11 +25,13 @@ function AppContent() {
   return (
     <>
       <Header onLanguageChange={setLang} subtitle={getSubtitle()} />
-      <nav>
-        <Link to="/">{t.home}</Link>
-        <Link to="/gallery">{t.gallery}</Link>
-        <Link to="/contact">{t.contact}</Link>
-      </nav>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <nav>
+          <Link to="/">{t.home}</Link>
+          <Link to="/gallery">{t.gallery}</Link>
+          <Link to="/contact">{t.contact}</Link>
+        </nav>
+      </div>
       <Routes>
         <Route path="/" element={<MainWrapper><h2>{t.welcome}</h2><p>{t.description}</p></MainWrapper>} />
         <Route path="/gallery" element={<MainWrapper><GalleryPage t={t} /></MainWrapper>} />
