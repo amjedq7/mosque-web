@@ -111,6 +111,12 @@ header {
         font-size: 1.5rem;
         cursor: pointer;
     }
+    .desktop-table {
+        display: none !important;
+    }
+    .mobile-cards {
+        display: block !important;
+    }
     .top-controls {
         display: none;
         flex-direction: column;
@@ -178,6 +184,15 @@ header {
         align-items: center;
         padding: 10px;
         background: rgba(10, 10, 25, 0.2);
+    }
+}
+
+@media (min-width: 601px) {
+    .desktop-table {
+        display: table !important;
+    }
+    .mobile-cards {
+        display: none !important;
     }
 }
 
