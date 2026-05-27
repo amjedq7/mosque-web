@@ -30,7 +30,7 @@ export default function Header({ onLanguageChange }: { onLanguageChange: (lang: 
   return (
     <header>
       <button className="controls-toggle" onClick={() => setIsControlsOpen(!isControlsOpen)}>
-        ⚙️
+        <img src="/hamburger-icon-50.png" alt="Menu" style={{ width: '24px', height: '24px' }} />
       </button>
       <div className={`top-controls ${isControlsOpen ? 'open' : ''}`}>
         <button className="theme-switcher" onClick={toggleTheme}>🌓</button>
