@@ -12,7 +12,8 @@ export const translations: Record<string, any> = {
     galleryDesc: "Coming soon: Images of our beautiful mosque.",
     contactTitle: "Get in Touch",
     contactDesc: "If you have any questions about Islam or our community, please reach out to us.",
-    email: "Email"
+    email: "Email",
+    mosqueEmail: "Mosque Email"
   },
   cz: {
     title: "MUSLIMSKÁ OBEC V TEPLICÍCH",
@@ -27,7 +28,8 @@ export const translations: Record<string, any> = {
     galleryDesc: "Již brzy: Obrázky naší krásné mešity.",
     contactTitle: "Kontaktujte nás",
     contactDesc: "Pokud máte jakékoli dotazy ohledně islámu nebo naší komunity, neváhejte nás kontaktovat.",
-    email: "E-mail"
+    email: "E-mail",
+    mosqueEmail: "E-mail mešity"
   },
   ar: {
     title: "المركز الاسلامي في تبليتسه",
@@ -42,6 +44,7 @@ export const translations: Record<string, any> = {
     galleryDesc: "قريباً: صور لمسجدنا الجميل.",
     contactTitle: "تواصل معنا",
     contactDesc: "إذا كان لديك أي أسئلة حول الإسلام أو مجتمعنا، يرجى التواصل معنا.",
-    email: "البريد الإلكتروني"
+    email: "البريد الإلكتروني",
+    mosqueEmail: "بريد المسجد"
   }
 };
