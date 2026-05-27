@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #6a1b9a;
-    --accent-color: #ab47bc;
+    --primary-color: #4a4a4a;
+    --accent-color: #757575;
     --bg-img: url('/images/mosque-in-dark.jpg');
     --text-color: #e0e0e0;
-    --card-bg: rgba(30, 30, 45, 0.85);
+    --card-bg: rgba(30, 30, 30, 0.85);
     --white: #ffffff;
-    --footer-bg: #0a0a19;
+    --footer-bg: #1a1a1a;
     --footer-text: #ffffff;
     --header-bg: rgba(0,0,0,0.5);
     --nav-bg: rgba(0, 0, 0, 0.4);
@@ -13,13 +13,13 @@
 }
 
 [data-theme='light'] {
-    --primary-color: #4a148c;
-    --accent-color: #7b1fa2;
+    --primary-color: #333333;
+    --accent-color: #616161;
     --bg-img: url('/images/mosque-in-day.jpg');
     --text-color: #333;
     --card-bg: rgba(255, 255, 255, 0.9);
     --white: #000;
-    --footer-bg: #ffffff;
+    --footer-bg: #f0f0f0;
     --footer-text: #333;
     --header-bg: rgba(255, 255, 255, 0.6);
     --nav-bg: rgba(255, 255, 255, 0.6);
@@ -30,6 +30,12 @@ html, body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -216,9 +222,17 @@ nav a {
     text-align: center;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
     background: var(--white);
     color: var(--primary-color);
+    border-color: var(--white);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+[data-theme='light'] nav a:hover, [data-theme='light'] nav a.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 .page-content {
