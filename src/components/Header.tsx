@@ -3,17 +3,19 @@ import { translations } from '../translations';
 
 export default function Header({ onLanguageChange }: { onLanguageChange: (lang: string) => void }) {
   const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [isControlsOpen, setIsControlsOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('lang', lang);
-  }, [lang]);
+  }, [lang, theme]);
 
   const toggleTheme = () => {
-    const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
+    setIsControlsOpen(false);
   };
 
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -21,16 +23,23 @@ export default function Header({ onLanguageChange }: { onLanguageChange: (lang: 
     setLang(newLang);
     localStorage.setItem('lang', newLang);
     onLanguageChange(newLang);
+    setIsControlsOpen(false);
   };
-
-  const [isControlsOpen, setIsControlsOpen] = useState(false);
 
   const t = translations[lang as keyof typeof translations];
 
   return (
     <header>
       <button className="controls-toggle" onClick={() => setIsControlsOpen(!isControlsOpen)}>
-        <img src="/hamburger-icon-50.png" alt="Menu" style={{ width: '24px', height: '24px' }} />
+        <img 
+          src="/hamburger-icon-50.png" 
+          alt="Menu" 
+          style={{ 
+            width: '24px', 
+            height: '24px', 
+            filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' 
+          }} 
+        />
       </button>
       <div className={`top-controls ${isControlsOpen ? 'open' : ''}`}>
         <button className="theme-switcher" onClick={toggleTheme}>🌓</button>
