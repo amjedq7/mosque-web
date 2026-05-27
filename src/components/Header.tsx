@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { translations } from '../translations';
 
-export default function Header({ onLanguageChange, subtitle }: { onLanguageChange: (lang: string) => void, subtitle: string }) {
+export default function Header({ onLanguageChange }: { onLanguageChange: (lang: string) => void }) {
   const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
 
   useEffect(() => {
@@ -41,7 +41,6 @@ export default function Header({ onLanguageChange, subtitle }: { onLanguageChang
         </select>
       </div>
       <h1>{t.title}</h1>
-      <h4>{subtitle}</h4>
     </header>
   );
 }

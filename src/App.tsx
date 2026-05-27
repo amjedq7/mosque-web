@@ -13,24 +13,15 @@ function AppContent() {
   const t = translations[lang as keyof typeof translations];
   const location = useLocation();
 
-  const getSubtitle = () => {
-    switch (location.pathname) {
-      case '/': return t.home;
-      case '/gallery': return t.gallery;
-      case '/contact': return t.contact;
-      default: return t.home;
-    }
-  };
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div style={{ flex: '1 0 auto' }}>
-        <Header onLanguageChange={setLang} subtitle={getSubtitle()} />
+        <Header onLanguageChange={setLang} />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <nav>
-            <Link to="/">{t.home}</Link>
-            <Link to="/gallery">{t.gallery}</Link>
-            <Link to="/contact">{t.contact}</Link>
+            <Link to="/" className={location.pathname === '/' ? 'active' : ''}>{t.home}</Link>
+            <Link to="/gallery" className={location.pathname === '/gallery' ? 'active' : ''}>{t.gallery}</Link>
+            <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>{t.contact}</Link>
           </nav>
         </div>
         <Routes>
