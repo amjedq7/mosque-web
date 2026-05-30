@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { translations } from '../translations';
 
-export default function Header({ onLanguageChange }: { onLanguageChange: (lang: string) => void }) {
+export default function Header({ 
+  onLanguageChange, 
+  theme, 
+  toggleTheme 
+}: { 
+  onLanguageChange: (lang: string) => void,
+  theme: string,
+  toggleTheme: () => void
+}) {
   const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
   const [isControlsOpen, setIsControlsOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('lang', lang);
   }, [lang, theme]);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    setIsControlsOpen(false);
-  };
 
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = e.target.value;
@@ -30,18 +30,6 @@ export default function Header({ onLanguageChange }: { onLanguageChange: (lang: 
 
   return (
     <header>
-      <a 
-        href="https://mawaqit.net/en/mosque-teplice-teplice-41501-czechia" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="prayer-times-link"
-      >
-        <img 
-          src={theme === 'dark' ? '/images/prayer-time-white.svg' : '/images/prayer-time-black.svg'} 
-          alt="Prayer Times" 
-          style={{ width: '32px', height: '32px', display: 'block' }}
-        />
-      </a>
       <button className="controls-toggle" onClick={() => setIsControlsOpen(!isControlsOpen)}>
         <img 
           src="/hamburger-icon-50.png" 
