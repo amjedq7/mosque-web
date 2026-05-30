@@ -36,6 +36,9 @@ function AppContent() {
               className="prayer-times-nav-link"
               title={t.prayerTimes}
             >
+              <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', marginRight: '8px', lineHeight: '1' }}>
+                {t.prayerTimes.split(' ').map((word, i) => <span key={i} style={{ fontSize: '0.85rem' }}>{word}</span>)}
+              </div>
               <img 
                 src={theme === 'light' ? '/images/prayer-time-black.svg' : '/images/prayer-time-white.svg'} 
                 alt="Prayer Times" 
