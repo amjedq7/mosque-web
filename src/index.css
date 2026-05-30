@@ -164,20 +164,37 @@ header {
         margin: 10px 0;
     }
     nav {
-        display: flex;
-        flex-direction: column;
+        background: var(--nav-bg);
         padding: 0.5rem;
+        text-align: center;
+        position: static;
+        width: 95%;
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        display: inline-flex;
+        justify-content: center;
         gap: 5px;
-        width: 90%;
+        margin: 10px auto;
+        border-radius: 16px;
+        border: 1px solid var(--nav-border);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        flex-wrap: wrap;
     }
+
     nav a {
         min-width: auto;
-        padding: 8px 15px;
-        font-size: 0.9rem;
+        padding: 8px 10px;
+        font-size: 0.85rem;
     }
+
+    .prayer-times-nav-link {
+        padding: 5px 8px;
+        min-width: 40px;
+    }
+
     .page-content {
-        margin: 20px 10px;
-        padding: 15px;
+        margin: 10px 10px;
+        padding: 10px;
     }
     footer {
         display: flex;
@@ -284,7 +301,7 @@ nav a:hover, nav a.active {
 
 .page-content {
     max-width: 650px;
-    margin: 40px auto;
+    margin: 10px auto;
     padding: 30px;
     background: var(--card-bg);
     border-radius: 12px;
