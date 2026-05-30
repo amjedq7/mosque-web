@@ -342,8 +342,16 @@ footer {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+.prayer-times-nav-link:hover img {
+    filter: invert(1);
+}
+
 [data-theme='light'] .prayer-times-nav-link:hover {
     background: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+[data-theme='light'] .prayer-times-nav-link:hover img {
+    filter: invert(1);
 }
 
