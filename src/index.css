@@ -64,13 +64,13 @@ body {
 header {
     background-color: var(--header-bg);
     color: var(--white);
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 210px;
+    min-height: 120px;
     text-align: center;
 }
 
