@@ -329,16 +329,19 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 15px;
+    padding: 8px 12px;
     border: 2px solid var(--white);
     border-radius: 4px;
     transition: all 0.3s ease;
-    min-width: 60px;
     text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--white);
 }
 
 .prayer-times-nav-link:hover {
     background: var(--white);
+    color: var(--primary-color);
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -346,8 +349,14 @@ footer {
     filter: invert(1);
 }
 
+[data-theme='light'] .prayer-times-nav-link {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
 [data-theme='light'] .prayer-times-nav-link:hover {
     background: var(--primary-color);
+    color: white;
     border-color: var(--primary-color);
 }
 
