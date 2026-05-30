@@ -22,17 +22,17 @@ export default function ContactPage({ t }: { t: any }) {
         <table className="desktop-table" style={{ width: '100%', borderCollapse: 'collapse', border: '2px solid #555' }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>Name</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>Function</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>Email</th>
+              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.nameLabel}</th>
+              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.functionLabel}</th>
+              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.emailLabel}</th>
             </tr>
           </thead>
           <tbody>
             {contacts.map((contact, index) => (
               <tr key={index} style={{ background: index % 2 === 0 ? 'var(--surface-color)' : 'var(--surface-variant)' }}>
-                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555' }}>{contact.name}</td>
-                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555' }}>{contact.function}</td>
-                <td style={{ padding: '0.75rem', color: 'var(--accent-color)', border: '1px solid #555' }}>{contact.email}</td>
+                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555', textAlign: 'center' }}>{contact.name}</td>
+                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555', textAlign: 'center' }}>{contact.function}</td>
+                <td style={{ padding: '0.75rem', color: 'var(--accent-color)', border: '1px solid #555', textAlign: 'center' }}>{contact.email}</td>
               </tr>
             ))}
           </tbody>
@@ -40,10 +40,10 @@ export default function ContactPage({ t }: { t: any }) {
 
         <div className="mobile-cards">
           {contacts.map((contact, index) => (
-            <div key={index} style={{ border: '1px solid #555', padding: '1rem', marginBottom: '1rem', borderRadius: '8px', background: 'var(--surface-color)' }}>
-              <p style={{ margin: '0.25rem 0' }}><strong>Name:</strong> {contact.name}</p>
-              <p style={{ margin: '0.25rem 0' }}><strong>Function:</strong> {contact.function}</p>
-              <p style={{ margin: '0.25rem 0' }}><strong>Email:</strong> {contact.email}</p>
+            <div key={index} style={{ border: '1px solid #555', padding: '1rem', marginBottom: '1rem', borderRadius: '8px', background: 'var(--surface-color)', textAlign: 'center' }}>
+              <p style={{ margin: '0.25rem 0' }}><strong>{t.nameLabel}:</strong> {contact.name}</p>
+              <p style={{ margin: '0.25rem 0' }}><strong>{t.functionLabel}:</strong> {contact.function}</p>
+              <p style={{ margin: '0.25rem 0' }}><strong>{t.emailLabel}:</strong> {contact.email}</p>
             </div>
           ))}
         </div>

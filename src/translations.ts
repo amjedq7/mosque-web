@@ -12,7 +12,9 @@ export const translations: Record<string, any> = {
     galleryDesc: "Coming soon: Images of our beautiful mosque.",
     contactTitle: "Get in Touch",
     contactDesc: "If you have any questions about Islam or our community, please reach out to us.",
-    email: "Email",
+    nameLabel: "Name",
+    functionLabel: "Function",
+    emailLabel: "Email",
     mosqueEmail: "Mosque Email"
   },
   cz: {
@@ -28,7 +30,9 @@ export const translations: Record<string, any> = {
     galleryDesc: "Již brzy: Obrázky naší krásné mešity.",
     contactTitle: "Kontaktujte nás",
     contactDesc: "Pokud máte jakékoli dotazy ohledně islámu nebo naší komunity, neváhejte nás kontaktovat.",
-    email: "E-mail",
+    nameLabel: "Jméno",
+    functionLabel: "Funkce",
+    emailLabel: "E-mail",
     mosqueEmail: "E-mail mešity"
   },
   ar: {
@@ -44,7 +48,9 @@ export const translations: Record<string, any> = {
     galleryDesc: "قريباً: صور لمسجدنا الجميل.",
     contactTitle: "تواصل معنا",
     contactDesc: "إذا كان لديك أي أسئلة حول الإسلام أو مجتمعنا، يرجى التواصل معنا.",
-    email: "البريد الإلكتروني",
+    nameLabel: "الاسم",
+    functionLabel: "الوظيفة",
+    emailLabel: "البريد الإلكتروني",
     mosqueEmail: "بريد المسجد"
   }
 };
