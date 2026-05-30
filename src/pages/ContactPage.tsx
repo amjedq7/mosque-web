@@ -51,7 +51,20 @@ export default function ContactPage({ t }: { t: any }) {
 
 
       <div style={{ marginTop: '3rem', padding: '1rem', background: 'var(--surface-variant)', color: 'var(--text-primary)', borderRadius: '8px', textAlign: 'center' }}>
-        <p>{t.mosqueEmail}: <a href="mailto:info@mosque.org" style={{color: 'var(--accent-color)', fontWeight: 'bold', textDecoration: 'none'}}>info@mosque.org</a></p>
+        <p style={{ marginBottom: '0.5rem' }}>{t.mosqueEmail}: <a href="mailto:info@mosque.org" style={{color: 'var(--accent-color)', fontWeight: 'bold', textDecoration: 'none'}}>info@mosque.org</a></p>
+        <p style={{ marginTop: '0.5rem' }}><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
+      </div>
+
+      <div style={{ marginTop: '2rem', borderRadius: '8px', overflow: 'hidden', border: '2px solid #555' }}>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.176214178553!2d13.824855476713506!3d50.63857507163821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47099d255953043f%3A0x6b8405d454a88f56!2sU%20Nov%C3%BDch%20l%C3%A1zn%C3%AD%201224%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1717089400000!5m2!1sen!2scz"
+          width="100%"
+          height="300"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          title="Mosque Location"
+        ></iframe>
       </div>
     </div>
   );

@@ -15,7 +15,8 @@ export const translations: Record<string, any> = {
     nameLabel: "Name",
     functionLabel: "Function",
     emailLabel: "Email",
-    mosqueEmail: "Mosque Email"
+    mosqueEmail: "Mosque Email",
+    address: "Address"
   },
   cz: {
     title: "MUSLIMSKÁ OBEC V TEPLICÍCH",
@@ -33,7 +34,8 @@ export const translations: Record<string, any> = {
     nameLabel: "Jméno",
     functionLabel: "Funkce",
     emailLabel: "E-mail",
-    mosqueEmail: "E-mail mešity"
+    mosqueEmail: "E-mail mešity",
+    address: "Adresa"
   },
   ar: {
     title: "المركز الاسلامي في تبليتسه",
@@ -51,6 +53,7 @@ export const translations: Record<string, any> = {
     nameLabel: "الاسم",
     functionLabel: "الوظيفة",
     emailLabel: "البريد الإلكتروني",
-    mosqueEmail: "بريد المسجد"
+    mosqueEmail: "بريد المسجد",
+    address: "العنوان"
   }
 };
