@@ -17,7 +17,9 @@ export const translations: Record<string, any> = {
     emailLabel: "Email",
     mosqueEmail: "Mosque Email",
     address: "Address",
-    prayerTimes: "Prayer Times"
+    prayerTimes: "Prayer Times",
+    themeSwitcher: "Toggle Theme",
+    languageSelector: "Select Language"
   },
   cz: {
     title: "MUSLIMSKÁ OBEC V TEPLICÍCH",
@@ -37,7 +39,9 @@ export const translations: Record<string, any> = {
     emailLabel: "E-mail",
     mosqueEmail: "E-mail mešity",
     address: "Adresa",
-    prayerTimes: "Časy modliteb"
+    prayerTimes: "Časy modliteb",
+    themeSwitcher: "Přepnout vzhled",
+    languageSelector: "Zvolit jazyk"
   },
   ar: {
     title: "المركز الاسلامي في تبليتسه",
@@ -57,6 +61,8 @@ export const translations: Record<string, any> = {
     emailLabel: "البريد الإلكتروني",
     mosqueEmail: "بريد المسجد",
     address: "العنوان",
-    prayerTimes: "أوقات الصلاة"
+    prayerTimes: "أوقات الصلاة",
+    themeSwitcher: "تبديل المظهر",
+    languageSelector: "اختر اللغة"
   }
 };
