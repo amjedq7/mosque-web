@@ -307,3 +307,34 @@ footer {
     width: 100%;
     box-sizing: border-box;
 }
+
+.prayer-times-link {
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.prayer-times-link:hover {
+    background: var(--white);
+    border-color: var(--white);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+[data-theme='light'] .prayer-times-link {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--primary-color);
+}
+
+[data-theme='light'] .prayer-times-link:hover {
+    background: var(--primary-color);
+}
