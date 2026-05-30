@@ -34,6 +34,7 @@ function AppContent() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="prayer-times-nav-link"
+              title={t.prayerTimes}
             >
               <img 
                 src={theme === 'light' ? '/images/prayer-time-black.svg' : '/images/prayer-time-white.svg'} 
