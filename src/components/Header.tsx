@@ -30,6 +30,18 @@ export default function Header({ onLanguageChange }: { onLanguageChange: (lang: 
 
   return (
     <header>
+      <a 
+        href="https://mawaqit.net/en/mosque-teplice-teplice-41501-czechia" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="prayer-times-link"
+      >
+        <img 
+          src={theme === 'dark' ? '/images/prayer-time-white.svg' : '/images/prayer-time-black.svg'} 
+          alt="Prayer Times" 
+          style={{ width: '32px', height: '32px', display: 'block' }}
+        />
+      </a>
       <button className="controls-toggle" onClick={() => setIsControlsOpen(!isControlsOpen)}>
         <img 
           src="/hamburger-icon-50.png" 
