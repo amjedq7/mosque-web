@@ -42,7 +42,7 @@ export default function Header({
         />
       </button>
       <div className={`top-controls ${isControlsOpen ? 'open' : ''}`}>
-        <button className="theme-switcher" onClick={toggleTheme} title={t.themeSwitcher}>🌓</button>
+        <button className="theme-switcher" onClick={() => { toggleTheme(); setIsControlsOpen(false); }} title={t.themeSwitcher}>🌓</button>
         <select className="language-select" onChange={changeLanguage} value={lang} title={t.languageSelector}>
           <option value="en">English</option>
           <option value="cz">Čeština</option>
