@@ -36,7 +36,7 @@ function AppContent() {
               className="prayer-times-nav-link"
               title={t.prayerTimes}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', marginRight: '8px', lineHeight: '1' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', marginRight: '8px', lineHeight: '1', gap: '4px' }}>
                 {t.prayerTimes.split(' ').map((word, i) => <span key={i} style={{ fontSize: '0.85rem' }}>{word}</span>)}
               </div>
               <img 
