@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import { translations } from './translations';
@@ -53,7 +54,7 @@ function AppContent() {
           <Route path="/contact" element={<MainWrapper><ContactPage t={t} /></MainWrapper>} />
         </Routes>
       </div>
-      <footer>{t.footer}</footer>
+      <Footer t={t} lang={lang} />
     </div>
   );
 }
