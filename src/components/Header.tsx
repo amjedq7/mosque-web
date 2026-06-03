@@ -16,6 +16,7 @@ export default function Header({
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   }, [lang, theme]);
 
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
