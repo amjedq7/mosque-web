@@ -6,25 +6,22 @@ interface FooterProps {
 }
 
 const Footer = ({ t, lang }: FooterProps) => {
-  const isAr = lang === 'ar';
-  
   return (
     <footer 
-      className={`flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border ${isAr ? 'rtl' : 'ltr'}`}
-      style={{ textAlign: isAr ? 'right' : 'left' }}
+      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center"
     >
-      <div className={`flex flex-wrap justify-between gap-5 mb-5 ${isAr ? 'flex-row-reverse' : 'flex-row'}`}>
-        <div className="flex-[1_1_300px]">
+      <div className="flex flex-col gap-5 mb-5 items-center">
+        <div className="max-w-[400px] text-left">
           <strong className="block">{t.legalName}</strong>
           <p className="my-1.5">{t.legalAddress}</p>
           <p className="my-1.5">{t.legalIco}</p>
           <p className="my-1.5">{t.legalRegistry}</p>
         </div>
-        <div className="flex-[0_0_auto]">
+        <div className="text-center">
           <Link to="/privacy-policy" className="text-[var(--footer-text)] underline">{t.privacyPolicy}</Link>
         </div>
       </div>
-      <div className="text-center border-t border-[rgba(128,128,128,0.3)] pt-2.5">
+      <div className="border-t border-[rgba(128,128,128,0.3)] pt-2.5 w-full text-center">
         {t.copyright}
       </div>
     </footer>

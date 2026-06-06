@@ -23,18 +23,18 @@ function AppContent() {
 
   const navLinkClass = (path: string) => {
     const isActive = location.pathname === path;
-    const baseClass = "font-bold p-[12px_20px] min-w-[100px] text-center border-2 rounded transition-all duration-300";
+    const baseClass = "font-bold p-[8px_20px] min-w-[120px] text-center border-2 rounded transition-all duration-300 flex items-center justify-center";
     
     // Default (Unactive)
     let colorClass = theme === 'light'
       ? "text-black border-black bg-white/20 backdrop-blur-sm shadow-sm hover:bg-black hover:text-white"
-      : "text-[var(--white)] border-[var(--white)] hover:bg-[var(--white)] hover:text-[var(--primary-color)]";
+      : "text-[var(--white)] border-[var(--white)] hover:bg-[var(--white)] hover:text-black";
     
     // Active class logic
     if (isActive) {
       colorClass = theme === 'light' 
         ? "bg-black text-white border-black" 
-        : "bg-[var(--white)] text-[var(--primary-color)] border-[var(--white)]";
+        : "bg-[var(--white)] text-black border-[var(--white)]";
     }
 
     return `${baseClass} ${colorClass}`;
@@ -53,15 +53,15 @@ function AppContent() {
               href="https://mawaqit.net/en/mosque-teplice-teplice-41501-czechia" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`flex items-center justify-center p-[8px_12px] border-2 rounded transition-all duration-300 text-xs font-bold group ${
+              className={`font-bold p-[8px_20px] min-w-[120px] text-center border-2 rounded transition-all duration-300 text-sm flex items-center justify-center group ${
                 theme === 'light'
                   ? 'border-black text-black bg-white/20 backdrop-blur-sm shadow-sm hover:bg-black hover:text-white'
-                  : 'border-[var(--white)] text-[var(--white)] hover:bg-[var(--white)] hover:text-[var(--primary-color)]'
+                  : 'border-[var(--white)] text-[var(--white)] hover:bg-[var(--white)] hover:text-black'
               }`}
               title={t.prayerTimes}
             >
-              <div className="flex flex-col text-center mr-2 leading-none gap-1">
-                {t.prayerTimes.split(' ').map((word: string, i: number) => <span key={i} className="text-xs">{word}</span>)}
+              <div className="flex flex-col text-center mr-3 leading-none gap-0">
+                {t.prayerTimes.split(' ').map((word: string, i: number) => <span key={i} className="text-sm">{word}</span>)}
               </div>
               <img 
                 src={theme === 'light' ? '/images/prayer-time-black.svg' : '/images/prayer-time-white.svg'} 

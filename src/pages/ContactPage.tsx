@@ -14,48 +14,49 @@ const contacts: Contact[] = [
 
 export default function ContactPage({ t }: { t: any }) {
   return (
-    <div className="max-w-[800px] mx-auto p-4">
+    <div className="max-w-[800px] mx-auto p-4 text-[var(--text-color)]">
       <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
-      <p className="mb-8 text-gray-400">{t.contactDesc}</p>
-      
-      <div className="contact-table-container">
-        <table className="hidden md:table w-full border-collapse border-2 border-[#555]">
+      <p className="mb-8">{t.contactDesc}</p>
+
+      {/* Desktop Table */}
+      <div className="hidden sm:block overflow-x-auto">
+        <table className="w-full border-collapse border border-[var(--nav-border)]">
           <thead>
-            <tr>
-              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.nameLabel}</th>
-              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.functionLabel}</th>
-              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.emailLabel}</th>
+            <tr className="bg-[rgba(128,128,128,0.2)]">
+              <th className="p-3 border border-[var(--nav-border)]">{t.nameLabel}</th>
+              <th className="p-3 border border-[var(--nav-border)]">{t.functionLabel}</th>
+              <th className="p-3 border border-[var(--nav-border)]">{t.emailLabel}</th>
             </tr>
           </thead>
           <tbody>
             {contacts.map((contact, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'bg-gray-900' : 'bg-gray-800'}>
-                <td className="p-3 border border-[#555] text-center">{contact.name}</td>
-                <td className="p-3 border border-[#555] text-center">{contact.function}</td>
-                <td className="p-3 border border-[#555] text-center text-gray-400">{contact.email}</td>
+              <tr key={index} className={index % 2 === 0 ? 'bg-[rgba(128,128,128,0.1)]' : ''}>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.name}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.function}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.email}</td>
               </tr>
             ))}
           </tbody>
         </table>
-
-        <div className="md:hidden">
-          {contacts.map((contact, index) => (
-            <div key={index} className="border border-[#555] p-4 mb-4 rounded-lg bg-gray-900 text-center">
-              <p className="my-1"><strong>{t.nameLabel}:</strong> {contact.name}</p>
-              <p className="my-1"><strong>{t.functionLabel}:</strong> {contact.function}</p>
-              <p className="my-1"><strong>{t.emailLabel}:</strong> {contact.email}</p>
-            </div>
-          ))}
-        </div>
       </div>
 
-
-      <div className="mt-12 p-4 bg-gray-800 rounded-lg text-center">
-        <p className="mb-2">{t.mosqueEmail}: <a href="mailto:info@mosque.org" className="text-gray-400 font-bold hover:underline">info@mosque.org</a></p>
+      {/* Mobile Cards (as borderless, bubble-like cards) */}
+      <div className="sm:hidden flex flex-col gap-6">
+        {contacts.map((contact, index) => (
+          <div key={index} className="w-full border border-[var(--nav-border)] p-4 rounded-lg text-left">
+            <p className="p-1"><span className="font-bold">{t.nameLabel}:</span> {contact.name}</p>
+            <p className="p-1"><span className="font-bold">{t.functionLabel}:</span> {contact.function}</p>
+            <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> {contact.email}</p>
+          </div>
+        ))}
+      </div>
+...
+      <div className="mt-12 p-4 bg-[rgba(128,128,128,0.1)] rounded-lg text-center border border-[var(--nav-border)]">
+        <p className="mb-2">{t.mosqueEmail}: <a href="mailto:info@mosque.org" className="font-bold underline">info@mosque.org</a></p>
         <p className="mt-2"><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
       </div>
 
-      <div className="mt-8 rounded-lg overflow-hidden border-2 border-[#555]">
+      <div className="mt-8 rounded-lg overflow-hidden border-2 border-[var(--nav-border)]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.176214178553!2d13.824855476713506!3d50.63857507163821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47099d255953043f%3A0x6b8405d454a88f56!2sU%20Nov%C3%BDch%20l%C3%A1zn%C3%AD%201224%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1717089400000!5m2!1sen!2scz"
           width="100%"

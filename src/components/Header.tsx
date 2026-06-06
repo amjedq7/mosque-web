@@ -44,14 +44,14 @@ export default function Header({
       </button>
       <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[rgba(100,100,100,0.9)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.2)] ${isControlsOpen ? 'flex' : 'max-sm:hidden'}`}>
         <button 
-          className="cursor-pointer bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-white text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 hover:bg-[rgba(255,255,255,0.2)] hover:rotate-[15deg]" 
+          className={`cursor-pointer border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 ${theme === 'light' ? 'bg-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.2)]' : 'bg-[#4a4a4a] text-white hover:bg-[#333]'} hover:rotate-[15deg]`}
           onClick={() => { toggleTheme(); setIsControlsOpen(false); }} 
           title={t.themeSwitcher}
         >
           🌓
         </button>
         <select 
-          className="bg-[rgba(255,255,255,0.1)] text-white border border-[#757575] p-[8px_12px] rounded-lg cursor-pointer text-sm outline-none transition-[background,border-color] duration-300 hover:bg-[rgba(255,255,255,0.2)] hover:border-white [&>option]:bg-[#4a4a4a] [&>option]:text-white" 
+          className={`${theme === 'light' ? 'bg-white text-black border-black hover:bg-gray-200 hover:border-black' : 'bg-[#4a4a4a] text-white border-[#757575] hover:bg-[#333] hover:border-white'} p-[8px_12px] rounded-lg cursor-pointer text-sm outline-none transition-[background,border-color] duration-300 [&>option]:bg-white [&>option]:text-black`} 
           onChange={changeLanguage} 
           value={lang} 
           title={t.languageSelector}
@@ -61,7 +61,7 @@ export default function Header({
           <option value="ar">العربية</option>
         </select>
       </div>
-      <h1 className="text-2xl font-bold">{t.title}</h1>
+      <h1 className={`text-4xl font-bold ${theme === 'light' ? 'text-black' : 'text-white'}`}>{t.title}</h1>
     </header>
   );
 }

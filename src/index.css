@@ -6,27 +6,27 @@
     --accent-color: #757575;
     --bg-img: url('/images/teplice-mosque-night.jpg');
     --text-color: #e0e0e0;
-    --card-bg: rgba(30, 30, 30, 0.85);
+    --card-bg: rgba(30, 30, 30, 0.6);
     --white: #ffffff;
     --footer-bg: #1a1a1a;
     --footer-text: #ffffff;
     --header-bg: rgba(0,0,0,0.5);
     --nav-bg: rgba(0, 0, 0, 0.4);
-    --nav-border: rgba(255, 255, 255, 0.2);
+    --nav-border: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme='light'] {
     --primary-color: #333333;
     --accent-color: #616161;
     --bg-img: url('/images/teplice-mosque-day(1).jpg');
-    --text-color: #333;
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #1a1a1a;
+    --card-bg: rgba(255, 255, 255, 0.7);
     --white: #000;
     --footer-bg: #f0f0f0;
     --footer-text: #333;
     --header-bg: rgba(255, 255, 255, 0.6);
     --nav-bg: rgba(255, 255, 255, 0.6);
-    --nav-border: rgba(0, 0, 0, 0.1);
+    --nav-border: rgba(0, 0, 0, 0.5);
 }
 
 html, body {
@@ -56,6 +56,6 @@ body {
 }
 
 .page-content {
-    @apply max-w-[650px] mx-auto p-[30px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] flex-1 text-center;
+    @apply max-w-[800px] mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] flex-1 text-center;
     background: var(--card-bg);
 }
