@@ -45,7 +45,7 @@ function AppContent() {
       <div className="flex-[1_0_auto]">
         <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
         <div className="flex justify-center">
-          <nav className="inline-flex justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5">
+          <nav className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
             <Link to="/" className={navLinkClass('/')}>{t.home}</Link>
             <Link to="/gallery" className={navLinkClass('/gallery')}>{t.gallery}</Link>
             <Link to="/contact" className={navLinkClass('/contact')}>{t.contact}</Link>

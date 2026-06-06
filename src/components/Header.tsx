@@ -32,7 +32,7 @@ export default function Header({
   return (
     <header className="bg-[var(--header-bg)] text-white p-2 flex flex-col justify-center items-center relative min-h-[120px] text-center">
       <button 
-        className="hidden max-sm:block absolute top-2.5 right-2.5 bg-transparent border-none text-2xl cursor-pointer" 
+        className="hidden max-sm:block absolute top-2.5 right-2.5 bg-transparent border-none text-2xl cursor-pointer z-[2001]" 
         onClick={() => setIsControlsOpen(!isControlsOpen)}
       >
         <img 
@@ -42,7 +42,7 @@ export default function Header({
           style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
         />
       </button>
-      <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:hidden max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[rgba(100,100,100,0.9)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.2)] ${isControlsOpen ? 'max-sm:flex' : ''}`}>
+      <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[rgba(100,100,100,0.9)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.2)] ${isControlsOpen ? 'flex' : 'max-sm:hidden'}`}>
         <button 
           className="cursor-pointer bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-white text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 hover:bg-[rgba(255,255,255,0.2)] hover:rotate-[15deg]" 
           onClick={() => { toggleTheme(); setIsControlsOpen(false); }} 
