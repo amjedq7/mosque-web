@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom';
 
 interface FooterProps {
   t: any;
-  lang: string;
 }
 
-const Footer = ({ t, lang }: FooterProps) => {
+const Footer = ({ t }: FooterProps) => {
   return (
     <footer 
       className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center"

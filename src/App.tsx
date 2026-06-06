@@ -81,7 +81,7 @@ function AppContent() {
           <Route path="/contact" element={<MainWrapper><ContactPage t={t} /></MainWrapper>} />
         </Routes>
       </div>
-      <Footer t={t} lang={lang} />
+      <Footer t={t} />
     </div>
   );
 }
