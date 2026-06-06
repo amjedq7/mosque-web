@@ -14,53 +14,53 @@ const contacts: Contact[] = [
 
 export default function ContactPage({ t }: { t: any }) {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '1rem' }}>
-      <h2>{t.contactTitle}</h2>
-      <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>{t.contactDesc}</p>
+    <div className="max-w-[800px] mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
+      <p className="mb-8 text-gray-400">{t.contactDesc}</p>
       
       <div className="contact-table-container">
-        <table className="desktop-table" style={{ width: '100%', borderCollapse: 'collapse', border: '2px solid #555' }}>
+        <table className="hidden md:table w-full border-collapse border-2 border-[#555]">
           <thead>
             <tr>
-              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.nameLabel}</th>
-              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.functionLabel}</th>
-              <th style={{ textAlign: 'center', padding: '0.75rem', background: 'var(--surface-variant)', border: '1px solid #555' }}>{t.emailLabel}</th>
+              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.nameLabel}</th>
+              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.functionLabel}</th>
+              <th className="text-center p-3 bg-gray-800 border border-[#555]">{t.emailLabel}</th>
             </tr>
           </thead>
           <tbody>
             {contacts.map((contact, index) => (
-              <tr key={index} style={{ background: index % 2 === 0 ? 'var(--surface-color)' : 'var(--surface-variant)' }}>
-                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555', textAlign: 'center' }}>{contact.name}</td>
-                <td style={{ padding: '0.75rem', color: 'var(--text-primary)', border: '1px solid #555', textAlign: 'center' }}>{contact.function}</td>
-                <td style={{ padding: '0.75rem', color: 'var(--accent-color)', border: '1px solid #555', textAlign: 'center' }}>{contact.email}</td>
+              <tr key={index} className={index % 2 === 0 ? 'bg-gray-900' : 'bg-gray-800'}>
+                <td className="p-3 border border-[#555] text-center">{contact.name}</td>
+                <td className="p-3 border border-[#555] text-center">{contact.function}</td>
+                <td className="p-3 border border-[#555] text-center text-gray-400">{contact.email}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="mobile-cards">
+        <div className="md:hidden">
           {contacts.map((contact, index) => (
-            <div key={index} style={{ border: '1px solid #555', padding: '1rem', marginBottom: '1rem', borderRadius: '8px', background: 'var(--surface-color)', textAlign: 'center' }}>
-              <p style={{ margin: '0.25rem 0' }}><strong>{t.nameLabel}:</strong> {contact.name}</p>
-              <p style={{ margin: '0.25rem 0' }}><strong>{t.functionLabel}:</strong> {contact.function}</p>
-              <p style={{ margin: '0.25rem 0' }}><strong>{t.emailLabel}:</strong> {contact.email}</p>
+            <div key={index} className="border border-[#555] p-4 mb-4 rounded-lg bg-gray-900 text-center">
+              <p className="my-1"><strong>{t.nameLabel}:</strong> {contact.name}</p>
+              <p className="my-1"><strong>{t.functionLabel}:</strong> {contact.function}</p>
+              <p className="my-1"><strong>{t.emailLabel}:</strong> {contact.email}</p>
             </div>
           ))}
         </div>
       </div>
 
 
-      <div style={{ marginTop: '3rem', padding: '1rem', background: 'var(--surface-variant)', color: 'var(--text-primary)', borderRadius: '8px', textAlign: 'center' }}>
-        <p style={{ marginBottom: '0.5rem' }}>{t.mosqueEmail}: <a href="mailto:info@mosque.org" style={{color: 'var(--accent-color)', fontWeight: 'bold', textDecoration: 'none'}}>info@mosque.org</a></p>
-        <p style={{ marginTop: '0.5rem' }}><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
+      <div className="mt-12 p-4 bg-gray-800 rounded-lg text-center">
+        <p className="mb-2">{t.mosqueEmail}: <a href="mailto:info@mosque.org" className="text-gray-400 font-bold hover:underline">info@mosque.org</a></p>
+        <p className="mt-2"><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
       </div>
 
-      <div style={{ marginTop: '2rem', borderRadius: '8px', overflow: 'hidden', border: '2px solid #555' }}>
+      <div className="mt-8 rounded-lg overflow-hidden border-2 border-[#555]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.176214178553!2d13.824855476713506!3d50.63857507163821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47099d255953043f%3A0x6b8405d454a88f56!2sU%20Nov%C3%BDch%20l%C3%A1zn%C3%AD%201224%2C%20415%2001%20Teplice!5e0!3m2!1sen!2scz!4v1717089400000!5m2!1sen!2scz"
           width="100%"
           height="300"
-          style={{ border: 0 }}
+          className="border-0"
           allowFullScreen
           loading="lazy"
           title="Mosque Location"
