@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { translations } from './translations';
 
 const MainWrapper = ({ children }: { children: React.ReactNode }) => <main className="page-content relative z-10">{children}</main>;
@@ -20,12 +21,12 @@ function AppContent() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const doc = document.documentElement;
-          const maxScroll = doc.scrollHeight - window.innerHeight;
+          const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+          const maxScroll = scrollHeight - window.innerHeight;
           const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
           const clampedProgress = Math.max(0, Math.min(1, progress));
-          
-          doc.style.setProperty('--scroll-progress', `${clampedProgress * 100}%`);
+
+          document.documentElement.style.setProperty('--scroll-progress', clampedProgress.toString());
           ticking = false;
         });
         ticking = true;
@@ -72,6 +73,7 @@ function AppContent() {
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow flex flex-col w-full main-bg">
         <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
+        
         <div className="flex justify-center">
           <nav className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
             <Link to="/" className={navLinkClass('/')}>{t.home}</Link>
@@ -103,11 +105,13 @@ function AppContent() {
             </a>
           </nav>
         </div>
+
         <div className="flex-1 pb-32">
           <Routes>
             <Route path="/" element={<MainWrapper><h2 className="text-3xl font-bold mb-4">{t.welcome}</h2><p className="text-lg">{t.description}</p></MainWrapper>} />
             <Route path="/gallery" element={<MainWrapper><GalleryPage t={t} /></MainWrapper>} />
             <Route path="/contact" element={<MainWrapper><ContactPage t={t} /></MainWrapper>} />
+            <Route path="/privacy-policy" element={<MainWrapper><PrivacyPolicyPage t={t} /></MainWrapper>} />
           </Routes>
         </div>
       </div>

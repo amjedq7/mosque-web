@@ -67,6 +67,13 @@ export default function ContactPage({ t }: { t: any }) {
           title="Mosque Location"
         ></iframe>
       </div>
+
+      <div className="mt-12 p-4 text-sm opacity-80 text-center border-t border-[var(--nav-border)] pt-4">
+        <p className="font-bold">Muslimská obec v Teplicích</p>
+        <p>{t.legalAddressText}</p>
+        <p>{t.legalIcoText}</p>
+        <p>{t.legalRegistryText}</p>
+      </div>
     </div>
   );
 }
