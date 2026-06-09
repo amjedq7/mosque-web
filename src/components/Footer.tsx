@@ -7,7 +7,7 @@ interface FooterProps {
 const Footer = ({ t }: FooterProps) => {
   return (
     <footer 
-      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center text-center"
+      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center text-center shrink-0 mt-auto"
     >
       <div className="mb-4">
         <strong className="block">{t.legalName}</strong>

@@ -13,6 +13,8 @@
     --header-bg: rgba(0,0,0,0.5);
     --nav-bg: rgba(0, 0, 0, 0.4);
     --nav-border: rgba(255, 255, 255, 0.5);
+    --bg-width: max(100vw, 150vh);
+    --bg-height: calc(var(--bg-width) * 0.75);
 }
 
 [data-theme='light'] {
@@ -29,11 +31,21 @@
     --nav-border: rgba(0, 0, 0, 0.5);
 }
 
-html, body {
-    height: 100%;
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
     margin: 0;
     overflow-x: hidden;
     overscroll-behavior: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    transition: background-color 0.5s ease-in-out, color 0.3s ease;
 }
 
 #root {
@@ -42,20 +54,17 @@ html, body {
     flex-direction: column;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.main-bg {
     background-image: var(--bg-img);
     background-repeat: no-repeat;
-    background-position: center bottom;
-    background-attachment: fixed;
+    background-position: center var(--scroll-progress, 0%);
+    background-attachment: scroll;
     background-size: cover;
-    color: var(--text-color);
-    line-height: 1.8;
-    font-size: 1.1rem;
-    transition: background-image 0.5s ease-in-out, color 0.3s ease;
+    transition: background-image 0.5s ease-in-out;
+    min-height: var(--bg-height);
 }
 
 .page-content {
-    @apply max-w-[800px] mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] flex-1 text-center;
+    @apply max-w-[800px] w-full mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-10 shrink-0;
     background: var(--card-bg);
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header';
@@ -14,6 +14,34 @@ function AppContent() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
   const t = translations[lang as keyof typeof translations];
   const location = useLocation();
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+          // Clamp progress between 0 and 1 to handle overscroll bounce effects gracefully
+          const clampedProgress = Math.max(0, Math.min(1, progress));
+          document.documentElement.style.setProperty('--scroll-progress', `${clampedProgress * 100}%`);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    
+    // Initial calculate
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [location.pathname, lang]); // Recalculate on route or language change since page height might change
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -42,7 +70,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex-[1_0_auto]">
+      <div className="flex-[1_0_auto] flex flex-col w-full main-bg">
         <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
         <div className="flex justify-center">
           <nav className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
