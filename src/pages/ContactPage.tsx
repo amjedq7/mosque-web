@@ -50,7 +50,7 @@ export default function ContactPage({ t }: { t: any }) {
           </div>
         ))}
       </div>
-...
+
       <div className="mt-12 p-4 bg-[rgba(128,128,128,0.1)] rounded-lg text-center border border-[var(--nav-border)]">
         <p className="mb-2">{t.mosqueEmail}: <a href="mailto:info@mosque.org" className="font-bold underline">info@mosque.org</a></p>
         <p className="mt-2"><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>

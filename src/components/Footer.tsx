@@ -7,15 +7,15 @@ interface FooterProps {
 const Footer = ({ t }: FooterProps) => {
   return (
     <footer 
-      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-stripe-bg)] text-sm w-full box-border items-center text-center shrink-0 mt-auto"
+      className="flex flex-col p-5 text-[var(--footer-text)] text-sm w-full box-border items-center text-center shrink-0 mt-auto"
     >
-      <div className="mb-4">
+      <div className="mb-1">
         <Link to="/privacy-policy" className="text-[var(--footer-text)] underline">
           {t.privacyPolicy}
         </Link>
       </div>
 
-      <div className="pt-2.5 border-t border-[rgba(128,128,128,0.3)] w-full text-center">
+      <div className="w-full text-center">
         © 2026 Muslimská obec v Teplicích
       </div>
     </footer>
