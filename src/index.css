@@ -9,6 +9,7 @@
     --card-bg: rgba(30, 30, 30, 0.6);
     --white: #ffffff;
     --footer-bg: #1a1a1a;
+    --footer-stripe-bg: #0d0d0d;
     --footer-text: #ffffff;
     --header-bg: rgba(0,0,0,0.5);
     --nav-bg: rgba(0, 0, 0, 0.4);
@@ -25,6 +26,7 @@
     --card-bg: rgba(255, 255, 255, 0.7);
     --white: #000;
     --footer-bg: #f0f0f0;
+    --footer-stripe-bg: #e0e0e0;
     --footer-text: #333;
     --header-bg: rgba(255, 255, 255, 0.6);
     --nav-bg: rgba(255, 255, 255, 0.6);
@@ -41,7 +43,7 @@ body {
     overflow-x: hidden;
     overscroll-behavior: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--footer-bg);
+    background-color: var(--primary-color);
     color: var(--text-color);
     line-height: 1.8;
     font-size: 1.1rem;
@@ -60,7 +62,7 @@ body {
     background-position: center var(--scroll-progress, 0%);
     background-attachment: scroll;
     background-size: var(--bg-width) var(--bg-height);
-    background-color: var(--footer-bg);
+    background-color: transparent;
     transition: background-image 0.5s ease-in-out;
     min-height: max(100vh, var(--bg-height));
     display: flex;
@@ -69,6 +71,7 @@ body {
 }
 
 .page-content {
-    @apply max-w-[800px] w-full mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-10 shrink-0;
+    @apply max-w-[800px] w-full mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-16;
     background: var(--card-bg);
+    overflow: hidden;
 }

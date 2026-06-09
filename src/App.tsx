@@ -103,11 +103,11 @@ function AppContent() {
             </a>
           </nav>
         </div>
-        <div className="flex-grow flex flex-col">
+        <div className="flex-1 pb-32">
           <Routes>
-            <Route path="/" element={<div className="flex-grow flex flex-col"><MainWrapper><h2 className="text-3xl font-bold mb-4">{t.welcome}</h2><p className="text-lg">{t.description}</p></MainWrapper></div>} />
-            <Route path="/gallery" element={<div className="flex-grow flex flex-col"><MainWrapper><GalleryPage t={t} /></MainWrapper></div>} />
-            <Route path="/contact" element={<div className="flex-grow flex flex-col"><MainWrapper><ContactPage t={t} /></MainWrapper></div>} />
+            <Route path="/" element={<MainWrapper><h2 className="text-3xl font-bold mb-4">{t.welcome}</h2><p className="text-lg">{t.description}</p></MainWrapper>} />
+            <Route path="/gallery" element={<MainWrapper><GalleryPage t={t} /></MainWrapper>} />
+            <Route path="/contact" element={<MainWrapper><ContactPage t={t} /></MainWrapper>} />
           </Routes>
         </div>
       </div>
