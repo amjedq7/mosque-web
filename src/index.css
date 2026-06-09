@@ -35,13 +35,15 @@
 
 html {
     min-height: 100%;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none;
 }
 
 body {
     min-height: 100%;
     margin: 0;
     overflow-x: hidden;
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--primary-color);
     color: var(--text-color);
