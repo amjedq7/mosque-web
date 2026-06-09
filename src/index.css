@@ -57,21 +57,38 @@ body {
 }
 
 .main-bg {
-    background-image: var(--bg-img);
-    background-repeat: no-repeat;
-    background-position: center var(--scroll-progress, 0%);
-    background-attachment: scroll;
-    background-size: var(--bg-width) var(--bg-height);
-    background-color: transparent;
+    @apply flex flex-col w-full relative;
+    background-color: var(--footer-stripe-bg);
     transition: background-image 0.5s ease-in-out;
-    min-height: max(100vh, var(--bg-height));
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
+    min-height: 100vh;
+    z-index: 0;
+}
+
+.main-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh; /* Exactly 20% taller than the screen */
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center bottom;
+    z-index: -1;
+    /* Speed Syncing: Slides the 120vh image up by exactly 20vh over the full scroll, making the bottom perfectly flush with the footer at 100% scroll */
+    transform: translateY(calc(var(--scroll-progress, 0) * (-20vh - 120px)));
+    will-change: transform;
+    pointer-events: none;
 }
 
 .page-content {
     @apply max-w-[800px] w-full mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-16;
     background: var(--card-bg);
     overflow: hidden;
+}
+
+footer {
+    background-color: var(--footer-stripe-bg, #111111) !important;
+    position: relative;
+    z-index: 20;
 }

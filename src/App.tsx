@@ -17,20 +17,13 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-          const maxScroll = scrollHeight - window.innerHeight;
-          const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-          const clampedProgress = Math.max(0, Math.min(1, progress));
-
-          document.documentElement.style.setProperty('--scroll-progress', clampedProgress.toString());
-          ticking = false;
-        });
-        ticking = true;
-      }
+        const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        const maxScroll = scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        
+        document.documentElement.style.setProperty('--scroll-progress', clampedProgress.toString());
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -71,7 +64,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex-grow flex flex-col w-full main-bg">
+      <div className="flex-grow flex flex-col w-full main-bg relative">
         <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
         
         <div className="flex justify-center">
