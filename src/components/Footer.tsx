@@ -7,20 +7,23 @@ interface FooterProps {
 const Footer = ({ t }: FooterProps) => {
   return (
     <footer 
-      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center"
+      className="flex flex-col p-5 text-[var(--footer-text)] bg-[var(--footer-bg)] text-sm w-full box-border items-center text-center"
     >
-      <div className="flex flex-col gap-5 mb-5 items-center">
-        <div className="max-w-[400px] text-left">
-          <strong className="block">{t.legalName}</strong>
-          <p className="my-1.5">{t.legalAddress}</p>
-          <p className="my-1.5">{t.legalIco}</p>
-          <p className="my-1.5">{t.legalRegistry}</p>
-        </div>
-        <div className="text-center">
-          <Link to="/privacy-policy" className="text-[var(--footer-text)] underline">{t.privacyPolicy}</Link>
-        </div>
+      <div className="mb-4">
+        <strong className="block">{t.legalName}</strong>
+        <p className="my-1">{t.legalIco}</p>
+        <p className="my-1">{t.legalAddress}</p>
       </div>
-      <div className="border-t border-[rgba(128,128,128,0.3)] pt-2.5 w-full text-center">
+
+      <div style={{ fontSize: '0.75rem', opacity: 0.5, marginTop: '5px', marginBottom: '1rem' }}>
+        {t.legalRegistry}
+      </div>
+
+      <div className="mb-4">
+        <Link to="/privacy-policy" className="text-[var(--footer-text)] underline">{t.privacyPolicy}</Link>
+      </div>
+
+      <div className="pt-2.5 border-t border-[rgba(128,128,128,0.3)] w-full text-center">
         {t.copyright}
       </div>
     </footer>
