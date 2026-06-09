@@ -7,7 +7,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import { translations } from './translations';
 
-const MainWrapper = ({ children }: { children: React.ReactNode }) => <main className="page-content">{children}</main>;
+const MainWrapper = ({ children }: { children: React.ReactNode }) => <main className="page-content relative z-10">{children}</main>;
 
 function AppContent() {
   const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
@@ -20,11 +20,12 @@ function AppContent() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const doc = document.documentElement;
+          const maxScroll = doc.scrollHeight - window.innerHeight;
           const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-          // Clamp progress between 0 and 1 to handle overscroll bounce effects gracefully
           const clampedProgress = Math.max(0, Math.min(1, progress));
-          document.documentElement.style.setProperty('--scroll-progress', `${clampedProgress * 100}%`);
+          
+          doc.style.setProperty('--scroll-progress', `${clampedProgress * 100}%`);
           ticking = false;
         });
         ticking = true;
@@ -33,20 +34,19 @@ function AppContent() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
-    
-    // Initial calculate
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [location.pathname, lang]); // Recalculate on route or language change since page height might change
+  }, [location.pathname, lang]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
   };
 
   const navLinkClass = (path: string) => {
@@ -70,7 +70,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex-[1_0_auto] flex flex-col w-full main-bg">
+      <div className="flex-grow flex flex-col w-full main-bg">
         <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
         <div className="flex justify-center">
           <nav className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
@@ -103,11 +103,13 @@ function AppContent() {
             </a>
           </nav>
         </div>
-        <Routes>
-          <Route path="/" element={<MainWrapper><h2 className="text-3xl font-bold mb-4">{t.welcome}</h2><p className="text-lg">{t.description}</p></MainWrapper>} />
-          <Route path="/gallery" element={<MainWrapper><GalleryPage t={t} /></MainWrapper>} />
-          <Route path="/contact" element={<MainWrapper><ContactPage t={t} /></MainWrapper>} />
-        </Routes>
+        <div className="flex-grow flex flex-col">
+          <Routes>
+            <Route path="/" element={<div className="flex-grow flex flex-col"><MainWrapper><h2 className="text-3xl font-bold mb-4">{t.welcome}</h2><p className="text-lg">{t.description}</p></MainWrapper></div>} />
+            <Route path="/gallery" element={<div className="flex-grow flex flex-col"><MainWrapper><GalleryPage t={t} /></MainWrapper></div>} />
+            <Route path="/contact" element={<div className="flex-grow flex flex-col"><MainWrapper><ContactPage t={t} /></MainWrapper></div>} />
+          </Routes>
+        </div>
       </div>
       <Footer t={t} />
     </div>

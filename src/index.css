@@ -13,7 +13,7 @@
     --header-bg: rgba(0,0,0,0.5);
     --nav-bg: rgba(0, 0, 0, 0.4);
     --nav-border: rgba(255, 255, 255, 0.5);
-    --bg-width: max(100vw, 150vh);
+    --bg-width: max(100vw, 133.34vh);
     --bg-height: calc(var(--bg-width) * 0.75);
 }
 
@@ -59,9 +59,13 @@ body {
     background-repeat: no-repeat;
     background-position: center var(--scroll-progress, 0%);
     background-attachment: scroll;
-    background-size: cover;
+    background-size: var(--bg-width) var(--bg-height);
+    background-color: var(--footer-bg);
     transition: background-image 0.5s ease-in-out;
-    min-height: var(--bg-height);
+    min-height: max(100vh, var(--bg-height));
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
 .page-content {
