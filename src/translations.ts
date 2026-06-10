@@ -7,7 +7,7 @@ export const translations: Record<string, any> = {
     gallery: "Gallery",
     contact: "Contact",
     welcome: "Welcome to Our Mosque",
-    description: "Your place of peace, prayer, and community.",
+    description: "Text will be added soon...",
     footer: "© 2026 Teplická Mešita",
     privacyPolicy: "Privacy Policy",
     privacyPolicyText: "We do not actively collect personal data from visitors. However, our website uses embedded third-party services, specifically Google Maps (to display the mosque location) and Mawaqit (to display live prayer times). When these widgets load, they connect directly to the servers of these providers. As a result, your IP address and standard browser connection data may be processed by Google and Mawaqit to allow these features to display correctly on your screen. We do not store this information.",
@@ -20,7 +20,7 @@ export const translations: Record<string, any> = {
     legalRegistryText: "Registered in Rejstřík evidovaných právnických osob (Ministry of Culture)",
     copyright: "© 2026 Muslimská obec v Teplicích",
     galleryTitle: "Photo Gallery",
-    galleryDesc: "Coming soon: Images of our beautiful mosque.",
+    galleryDesc: "Coming Soon...",
     contactTitle: "Get in Touch",
     contactDesc: "If you have any questions about Islam or our community, please reach out to us.",
     nameLabel: "Name",
@@ -30,7 +30,10 @@ export const translations: Record<string, any> = {
     address: "Address",
     prayerTimes: "Prayer Times",
     themeSwitcher: "Toggle Theme",
-    languageSelector: "Select Language"
+    languageSelector: "Select Language",
+    placeholderName: "Name Surname",
+    placeholderFunction: "Function",
+    placeholderEmail: "name@example.com"
   },
   cz: {
     lang: "cz",
@@ -40,7 +43,7 @@ export const translations: Record<string, any> = {
     gallery: "Galerie",
     contact: "Kontakt",
     welcome: "Vítejte v naší mešitě",
-    description: "Vaše místo klidu, modlitby a komunity.",
+    description: "Text bude brzy doplněn...",
     footer: "© 2026 Teplická Mešita",
     privacyPolicy: "Zásady ochrany osobních údajů",
     privacyPolicyText: "Aktivně neshromažďujeme osobní údaje návštěvníků. Naše webové stránky však používají vložené služby třetích stran, konkrétně Mapy Google (k zobrazení polohy mešity) a Mawaqit (k zobrazení aktuálních časů modliteb). Při načítání těchto prvků se prohlížeč připojuje přímo k serverům těchto poskytovatelů. V důsledku toho mohou být vaše IP adresa a standardní údaje o připojení prohlížeče zpracovány společnostmi Google a Mawaqit, aby se tyto funkce mohly správně zobrazit na vaší obrazovce. Tyto informace my neukládáme.",
@@ -53,7 +56,7 @@ export const translations: Record<string, any> = {
     legalRegistryText: "Evidována v Rejstříku evidovaných právnických osob (MK ČR)",
     copyright: "© 2026 Muslimská obec v Teplicích",
     galleryTitle: "Fotogalerie",
-    galleryDesc: "Již brzy: Obrázky naší krásné mešity.",
+    galleryDesc: "Již brzy...",
     contactTitle: "Kontaktujte nás",
     contactDesc: "Pokud máte jakékoli dotazy ohledně islámu nebo naší komunity, neváhejte nás kontaktovat.",
     nameLabel: "Jméno",
@@ -63,7 +66,10 @@ export const translations: Record<string, any> = {
     address: "Adresa",
     prayerTimes: "Časy modliteb",
     themeSwitcher: "Přepnout vzhled",
-    languageSelector: "Zvolit jazyk"
+    languageSelector: "Zvolit jazyk",
+    placeholderName: "Jméno a příjmení",
+    placeholderFunction: "Funkce",
+    placeholderEmail: "name@example.com"
   },
   ar: {
     lang: "ar",
@@ -73,7 +79,7 @@ export const translations: Record<string, any> = {
     gallery: "معرض الصور",
     contact: "اتصل بنا",
     welcome: "مرحباً بكم في مسجدنا",
-    description: "مكانكم للسلام، والصلاة، والمجتمع.",
+    description: "سيتم إضافة النص قريباً...",
     footer: "© 2026 Teplická Mešita",
     privacyPolicy: "سياسة الخصوصية",
     privacyPolicyText: "نحن لا نجمع البيانات الشخصية من الزوار بشكل مباشر. ومع ذلك، يستخدم موقعنا خدمات مدمجة من جهات خارجية، وتحديداً خرائط جوجل (Google Maps) (لعرض موقع المسجد) ومواقيت (Mawaqit) (لعرض أوقات الصلاة المباشرة). عندما يتم تحميل هذه الإضافات، فإنها تتصل مباشرة بخوادم هؤلاء المزودين. ونتيجة لذلك، قد تتم معالجة عنوان IP الخاص بك وبيانات اتصال المتصفح القياسية بواسطة جوجل ومواقيت للسماح بعرض هذه الميزات بشكل صحيح على شاشتك. نحن لا نقوم بتخزين هذه المعلومات.",
@@ -86,7 +92,7 @@ export const translations: Record<string, any> = {
     legalRegistryText: "مسجلة في Rejstřík evidovaných právnických osob (وزارة الثقافة)",
     copyright: "© 2026 Muslimská obec v Teplicích",
     galleryTitle: "معرض الصور",
-    galleryDesc: "قريباً: صور لمسجدنا الجميل.",
+    galleryDesc: "قريباً...",
     contactTitle: "تواصل معنا",
     contactDesc: "إذا كان لديك أي أسئلة حول الإسلام أو مجتمعنا، يرجى التواصل معنا.",
     nameLabel: "الاسم",
@@ -96,6 +102,9 @@ export const translations: Record<string, any> = {
     address: "العنوان",
     prayerTimes: "أوقات الصلاة",
     themeSwitcher: "تبديل المظهر",
-    languageSelector: "اختر اللغة"
+    languageSelector: "اختر اللغة",
+    placeholderName: "الاسم واللقب",
+    placeholderFunction: "الوظيفة",
+    placeholderEmail: "name@example.com"
   }
 };

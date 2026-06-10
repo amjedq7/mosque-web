@@ -4,12 +4,12 @@ interface Contact {
   email: string;
 }
 
-const contacts: Contact[] = [
-  { name: 'Ahmed Hassan', function: 'Imam', email: 'ahmed.h@example.com' },
-  { name: 'Fatima Zahra', function: 'Administrator', email: 'fatima.z@example.com' },
-  { name: 'Omar Farooq', function: 'Events Coordinator', email: 'omar.f@example.com' },
-  { name: 'Layla Noor', function: 'Teacher', email: 'layla.n@example.com' },
-  { name: 'Yusuf Ibrahim', function: 'Community Outreach', email: 'yusuf.i@example.com' },
+const contacts = [
+  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
 ];
 
 export default function ContactPage({ t }: { t: any }) {
@@ -31,9 +31,9 @@ export default function ContactPage({ t }: { t: any }) {
           <tbody>
             {contacts.map((contact, index) => (
               <tr key={index} className={index % 2 === 0 ? 'bg-[rgba(128,128,128,0.1)]' : ''}>
-                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.name}</td>
-                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.function}</td>
-                <td className="p-3 border border-[var(--nav-border)] text-center">{contact.email}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.nameKey]}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.functionKey]}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.emailKey]}</td>
               </tr>
             ))}
           </tbody>
@@ -44,15 +44,15 @@ export default function ContactPage({ t }: { t: any }) {
       <div className="sm:hidden flex flex-col gap-6">
         {contacts.map((contact, index) => (
           <div key={index} className="w-full border border-[var(--nav-border)] p-4 rounded-lg text-left">
-            <p className="p-1"><span className="font-bold">{t.nameLabel}:</span> {contact.name}</p>
-            <p className="p-1"><span className="font-bold">{t.functionLabel}:</span> {contact.function}</p>
-            <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> {contact.email}</p>
+            <p className="p-1"><span className="font-bold">{t.nameLabel}:</span> {t[contact.nameKey]}</p>
+            <p className="p-1"><span className="font-bold">{t.functionLabel}:</span> {t[contact.functionKey]}</p>
+            <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> {t[contact.emailKey]}</p>
           </div>
         ))}
       </div>
 
       <div className="mt-12 p-4 bg-[rgba(128,128,128,0.1)] rounded-lg text-center border border-[var(--nav-border)]">
-        <p className="mb-2">{t.mosqueEmail}: <a href="mailto:info@mosque.org" className="font-bold underline">info@mosque.org</a></p>
+        <p className="mb-2"><strong>{t.mosqueEmail}:</strong> <a href="mailto:mosque@example.com" className="font-bold underline">mosque@example.com</a></p>
         <p className="mt-2"><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
       </div>
 
