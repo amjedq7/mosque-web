@@ -72,13 +72,13 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 120vh; /* Exactly 20% taller than the screen */
+    height: 120svh; /* Exactly 20% taller than the screen */
     background-image: var(--bg-img);
     background-size: cover;
     background-position: center bottom;
     z-index: -1;
-    /* Speed Syncing: Slides the 120vh image up by exactly 20vh over the full scroll, making the bottom perfectly flush with the footer at 100% scroll */
-    transform: translateY(calc(var(--scroll-progress, 0) * -20vh));
+    /* Speed Syncing: Slides the 120svh image up by exactly 20svh over the full scroll, making the bottom perfectly flush with the footer at 100% scroll */
+    transform: translateY(calc(var(--scroll-progress, 0) * -20svh));
     will-change: transform;
     pointer-events: none;
 }
