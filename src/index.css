@@ -72,15 +72,20 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 120lvh; /* Exactly 20% taller than the screen */
+    height: 100lvh; /* Static height for mobile */
     background-image: var(--bg-img);
     background-size: cover;
     background-position: center bottom;
     z-index: -1;
-    /* Speed Syncing: Slides the 120lvh image up by exactly 20lvh over the full scroll, making the bottom perfectly flush with the footer at 100% scroll */
-    transform: translateY(calc(var(--scroll-progress, 0) * -20lvh));
-    will-change: transform;
     pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+    .main-bg::before {
+        height: 120vh; /* Taller for parallax room */
+        transform: translateY(calc(var(--scroll-progress, 0) * -20vh));
+        will-change: transform;
+    }
 }
 
 .page-content {

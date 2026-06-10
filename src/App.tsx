@@ -10,7 +10,6 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { translations } from './translations';
 
 let ticking = false;
-
 const handleScroll = () => {
     if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -35,16 +34,13 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
     };
-  }, [location.pathname, lang]);
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
