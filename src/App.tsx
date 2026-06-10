@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header';
@@ -9,22 +9,6 @@ import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { translations } from './translations';
 
-let ticking = false;
-const handleScroll = () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-            const maxScroll = scrollHeight - window.innerHeight;
-            const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-            const clampedProgress = Math.max(0, Math.min(1, progress));
-            
-            document.documentElement.style.setProperty('--scroll-progress', clampedProgress.toString());
-            ticking = false;
-        });
-        ticking = true;
-    }
-};
-
 const MainWrapper = ({ children }: { children: React.ReactNode }) => <main className="page-content relative z-10">{children}</main>;
 
 function AppContent() {
@@ -32,15 +16,6 @@ function AppContent() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
   const t = translations[lang as keyof typeof translations];
   const location = useLocation();
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
