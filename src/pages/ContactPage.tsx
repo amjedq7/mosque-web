@@ -1,9 +1,3 @@
-interface Contact {
-  name: string;
-  function: string;
-  email: string;
-}
-
 const contacts = [
   { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
   { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
