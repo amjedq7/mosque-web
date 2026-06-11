@@ -44,14 +44,14 @@ export default function Header({
       </button>
       <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[var(--card-bg)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.1)] ${isControlsOpen ? 'flex' : 'max-sm:hidden'}`}>
         <button 
-          className={`cursor-pointer border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 ${theme === 'light' ? 'bg-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.2)]' : 'bg-[#4a4a4a] text-white hover:bg-[#333]'} hover:rotate-[15deg]`}
+          className={`cursor-pointer border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 ${theme === 'light' ? 'bg-[var(--card-bg)] text-black hover:bg-[rgba(0,0,0,0.1)]' : 'bg-[#4a4a4a] text-white hover:bg-[#333]'} hover:rotate-[15deg]`}
           onClick={() => { toggleTheme(); setIsControlsOpen(false); }} 
           title={t.themeSwitcher}
         >
           🌓
         </button>
         <select 
-          className={`${theme === 'light' ? 'bg-white text-black border-black hover:bg-gray-200 hover:border-black' : 'bg-[#4a4a4a] text-white border-[#757575] hover:bg-[#333] hover:border-white'} p-[8px_12px] rounded-lg cursor-pointer text-sm outline-none transition-[background,border-color] duration-300 [&>option]:bg-white [&>option]:text-black`} 
+          className={`${theme === 'light' ? 'bg-[var(--card-bg)] text-black border-black hover:bg-gray-200' : 'bg-[#4a4a4a] text-white border-[#757575] hover:border-white'} p-[8px_12px] rounded-lg cursor-pointer text-sm outline-none transition-[background,border-color] duration-300 [&>option]:bg-white [&>option]:text-black`} 
           onChange={changeLanguage} 
           value={lang} 
           title={t.languageSelector}
