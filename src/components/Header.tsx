@@ -42,7 +42,7 @@ export default function Header({
           style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
         />
       </button>
-      <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[rgba(100,100,100,0.9)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.2)] ${isControlsOpen ? 'flex' : 'max-sm:hidden'}`}>
+      <div className={`absolute top-4 right-4 flex items-center gap-2.5 max-sm:flex-col max-sm:gap-2.5 max-sm:top-[50px] max-sm:right-2.5 max-sm:bg-[var(--card-bg)] max-sm:p-[15px] max-sm:rounded-lg max-sm:z-[2000] max-sm:min-w-[150px] max-sm:text-white max-sm:border max-sm:border-[rgba(255,255,255,0.1)] ${isControlsOpen ? 'flex' : 'max-sm:hidden'}`}>
         <button 
           className={`cursor-pointer border border-[rgba(255,255,255,0.3)] p-[5px] rounded-full text-xl transition-all duration-300 flex items-center justify-center w-10 h-10 ${theme === 'light' ? 'bg-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.2)]' : 'bg-[#4a4a4a] text-white hover:bg-[#333]'} hover:rotate-[15deg]`}
           onClick={() => { toggleTheme(); setIsControlsOpen(false); }} 
