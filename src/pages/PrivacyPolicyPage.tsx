@@ -1,6 +1,8 @@
-import type { Translation } from '../translations';
+import { useTranslation } from '../contexts/TranslationContext';
 
-export default function PrivacyPolicyPage({ t }: { t: Translation }) {
+export default function PrivacyPolicyPage() {
+  const { t } = useTranslation();
+
   return (
     <div className={`max-w-[800px] mx-auto p-4 text-[var(--text-color)] ${t.lang === 'ar' ? 'text-right' : 'text-left'}`}>
       <h2 className="text-2xl font-bold mb-6">{t.privacyPolicy}</h2>

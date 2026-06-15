@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
-import type { Translation } from '../translations';
+import { useTranslation } from '../contexts/TranslationContext';
 
-interface FooterProps {
-  t: Translation;
-}
+const Footer = () => {
+  const { t } = useTranslation();
 
-const Footer = ({ t }: FooterProps) => {
   return (
     <footer 
       className="flex flex-col p-5 text-[var(--footer-text)] text-sm w-full box-border items-center text-center shrink-0 mt-auto"

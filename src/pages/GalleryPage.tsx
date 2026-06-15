@@ -1,6 +1,8 @@
-import type { Translation } from '../translations';
+import { useTranslation } from '../contexts/TranslationContext';
 
-export default function GalleryPage({ t }: { t: Translation }) {
+export default function GalleryPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-bold">{t.galleryTitle}</h2>

@@ -1,27 +1,16 @@
 import { useState } from 'react';
-import { translations } from '../translations';
+import { useTranslation } from '../contexts/TranslationContext';
+import { useTheme } from '../contexts/ThemeContext';
 
-export default function Header({ 
-  lang,
-  onLanguageChange, 
-  theme, 
-  toggleTheme 
-}: { 
-  lang: string,
-  onLanguageChange: (lang: string) => void,
-  theme: string,
-  toggleTheme: () => void
-}) {
+export default function Header() {
+  const { lang, setLang, t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
   const [isControlsOpen, setIsControlsOpen] = useState(false);
 
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value;
-    localStorage.setItem('lang', newLang);
-    onLanguageChange(newLang);
+    setLang(e.target.value);
     setIsControlsOpen(false);
   };
-
-  const t = translations[lang as keyof typeof translations] || translations.en;
 
   return (
     <header className="bg-[var(--header-bg)] text-white p-2 flex flex-col justify-center items-center relative min-h-[120px] text-center">

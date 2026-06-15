@@ -1,4 +1,4 @@
-import type { Translation } from '../translations';
+import { useTranslation } from '../contexts/TranslationContext';
 
 const ObfuscatedEmail = ({ email, className }: { email: string, className?: string }) => {
   const parts = email.split('@');
@@ -24,14 +24,16 @@ const ObfuscatedEmail = ({ email, className }: { email: string, className?: stri
 };
 
 const contacts = [
-  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
-  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
-  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
-  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
-  { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { id: 'contact-1', nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { id: 'contact-2', nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { id: 'contact-3', nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { id: 'contact-4', nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
+  { id: 'contact-5', nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
 ];
 
-export default function ContactPage({ t }: { t: Translation }) {
+export default function ContactPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-[800px] mx-auto p-4 text-[var(--text-color)]">
       <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
@@ -49,7 +51,7 @@ export default function ContactPage({ t }: { t: Translation }) {
           </thead>
           <tbody>
             {contacts.map((contact, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'bg-[rgba(128,128,128,0.1)]' : ''}>
+              <tr key={contact.id} className={index % 2 === 0 ? 'bg-[rgba(128,128,128,0.1)]' : ''}>
                 <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.nameKey]}</td>
                 <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.functionKey]}</td>
                 <td className="p-3 border border-[var(--nav-border)] text-center">
@@ -63,8 +65,8 @@ export default function ContactPage({ t }: { t: Translation }) {
 
       {/* Mobile Cards (as borderless, bubble-like cards) */}
       <div className="sm:hidden flex flex-col gap-6">
-        {contacts.map((contact, index) => (
-          <div key={index} className="w-full border border-[var(--nav-border)] p-4 rounded-lg text-left">
+        {contacts.map((contact) => (
+          <div key={contact.id} className="w-full border border-[var(--nav-border)] p-4 rounded-lg text-left">
             <p className="p-1"><span className="font-bold">{t.nameLabel}:</span> {t[contact.nameKey]}</p>
             <p className="p-1"><span className="font-bold">{t.functionLabel}:</span> {t[contact.functionKey]}</p>
             <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> <ObfuscatedEmail email={t[contact.emailKey]} /></p>
