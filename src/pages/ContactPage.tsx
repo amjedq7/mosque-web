@@ -1,3 +1,26 @@
+const ObfuscatedEmail = ({ email, className }: { email: string, className?: string }) => {
+  const parts = email.split('@');
+  if (parts.length !== 2) return <span>{email}</span>;
+
+  return (
+    <a 
+      href="#" 
+      onMouseEnter={(e) => {
+        e.currentTarget.href = `mailto:${parts[0]}@${parts[1]}`;
+      }}
+      onClick={(e) => {
+        if (e.currentTarget.getAttribute('href') === '#') {
+          e.preventDefault();
+          window.location.href = `mailto:${parts[0]}@${parts[1]}`;
+        }
+      }}
+      className={className || "hover:underline"}
+    >
+      {parts[0]}<span className="hidden">ignore</span>&#64;<span className="hidden">ignore</span>{parts[1]}
+    </a>
+  );
+};
+
 const contacts = [
   { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
   { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
@@ -27,7 +50,9 @@ export default function ContactPage({ t }: { t: any }) {
               <tr key={index} className={index % 2 === 0 ? 'bg-[rgba(128,128,128,0.1)]' : ''}>
                 <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.nameKey]}</td>
                 <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.functionKey]}</td>
-                <td className="p-3 border border-[var(--nav-border)] text-center">{t[contact.emailKey]}</td>
+                <td className="p-3 border border-[var(--nav-border)] text-center">
+                  <ObfuscatedEmail email={t[contact.emailKey]} />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -40,13 +65,13 @@ export default function ContactPage({ t }: { t: any }) {
           <div key={index} className="w-full border border-[var(--nav-border)] p-4 rounded-lg text-left">
             <p className="p-1"><span className="font-bold">{t.nameLabel}:</span> {t[contact.nameKey]}</p>
             <p className="p-1"><span className="font-bold">{t.functionLabel}:</span> {t[contact.functionKey]}</p>
-            <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> {t[contact.emailKey]}</p>
+            <p className="p-1"><span className="font-bold">{t.emailLabel}:</span> <ObfuscatedEmail email={t[contact.emailKey]} /></p>
           </div>
         ))}
       </div>
 
       <div className="mt-12 p-4 bg-[rgba(128,128,128,0.1)] rounded-lg text-center border border-[var(--nav-border)]">
-        <p className="mb-2"><strong>{t.mosqueEmail}:</strong> <a href="mailto:mosque@example.com" className="font-bold underline">mosque@example.com</a></p>
+        <p className="mb-2"><strong>{t.mosqueEmail}:</strong> <ObfuscatedEmail email="mosque@example.com" className="font-bold underline" /></p>
         <p className="mt-2"><strong>{t.address}:</strong> U Nových lázní 1224, 415 01 Teplice 1</p>
       </div>
 
