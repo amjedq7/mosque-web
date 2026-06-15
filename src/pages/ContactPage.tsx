@@ -1,3 +1,5 @@
+import type { Translation } from '../translations';
+
 const ObfuscatedEmail = ({ email, className }: { email: string, className?: string }) => {
   const parts = email.split('@');
   if (parts.length !== 2) return <span>{email}</span>;
@@ -29,7 +31,7 @@ const contacts = [
   { nameKey: 'placeholderName', functionKey: 'placeholderFunction', emailKey: 'placeholderEmail' },
 ];
 
-export default function ContactPage({ t }: { t: any }) {
+export default function ContactPage({ t }: { t: Translation }) {
   return (
     <div className="max-w-[800px] mx-auto p-4 text-[var(--text-color)]">
       <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>

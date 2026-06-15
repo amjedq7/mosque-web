@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import type { Translation } from '../translations';
 
 interface FooterProps {
-  t: any;
+  t: Translation;
 }
 
 const Footer = ({ t }: FooterProps) => {

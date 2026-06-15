@@ -1,4 +1,42 @@
-export const translations: Record<string, any> = {
+export interface Translation {
+  lang: string;
+  title: string;
+  subtitle: string;
+  home: string;
+  gallery: string;
+  contact: string;
+  welcome: string;
+  description: string;
+  footer: string;
+  privacyPolicy: string;
+  privacyPolicyText: string;
+  legalName: string;
+  legalAddress: string;
+  legalIco: string;
+  legalRegistry: string;
+  legalAddressText: string;
+  legalIcoText: string;
+  legalRegistryText: string;
+  copyright: string;
+  galleryTitle: string;
+  galleryDesc: string;
+  contactTitle: string;
+  contactDesc: string;
+  nameLabel: string;
+  functionLabel: string;
+  emailLabel: string;
+  mosqueEmail: string;
+  address: string;
+  prayerTimes: string;
+  themeSwitcher: string;
+  languageSelector: string;
+  placeholderName: string;
+  placeholderFunction: string;
+  placeholderEmail: string;
+  [key: string]: string; // Fallback for dynamic keys like contacts map
+}
+
+export const translations: Record<string, Translation> = {
   en: {
     lang: "en",
     title: "ISLAMIC FOUNDATION TEPLICE",

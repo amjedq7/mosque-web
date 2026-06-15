@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header';
@@ -14,14 +14,19 @@ const MainWrapper = ({ children }: { children: React.ReactNode }) => <main class
 function AppContent() {
   const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-  const t = translations[lang as keyof typeof translations];
+  const t = translations[lang as keyof typeof translations] || translations.en;
   const location = useLocation();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  }, [lang, theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
   };
 
   const navLinkClass = (path: string) => {
@@ -46,13 +51,19 @@ function AppContent() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow flex flex-col w-full main-bg relative">
-        <Header onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
+        <Header lang={lang} onLanguageChange={setLang} theme={theme} toggleTheme={toggleTheme} />
         
         <div className="flex justify-center">
-          <nav className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
-            <Link to="/" className={navLinkClass('/')}>{t.home}</Link>
-            <Link to="/gallery" className={navLinkClass('/gallery')}>{t.gallery}</Link>
-            <Link to="/contact" className={navLinkClass('/contact')}>{t.contact}</Link>
+          <nav aria-label="Main Navigation" className="flex flex-wrap justify-center gap-4 m-2.5 p-4 rounded-2xl z-[1000] sticky top-2.5 max-sm:grid max-sm:grid-cols-2">
+            {[
+              { path: '/', label: t.home },
+              { path: '/gallery', label: t.gallery },
+              { path: '/contact', label: t.contact }
+            ].map(link => (
+              <Link key={link.path} to={link.path} className={navLinkClass(link.path)}>
+                {link.label}
+              </Link>
+            ))}
             <a 
               href="https://mawaqit.net/en/mosque-teplice-teplice-41501-czechia" 
               target="_blank" 
@@ -63,6 +74,7 @@ function AppContent() {
                   : 'border-[var(--white)] text-[var(--white)] hover:bg-[var(--white)] hover:text-black'
               }`}
               title={t.prayerTimes}
+              aria-label={t.prayerTimes}
             >
               <div className="flex flex-col text-center mr-3 leading-none gap-0">
                 {t.prayerTimes.split(' ').map((word: string, i: number) => <span key={i} className="text-sm">{word}</span>)}
