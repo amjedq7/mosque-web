@@ -48,7 +48,7 @@ export default function Header({
           onClick={() => { toggleTheme(); setIsControlsOpen(false); }} 
           title={t.themeSwitcher}
         >
-          🌓
+          {theme === 'light' ? '☀️' : '🌙'}
         </button>
         <select 
           className={`${theme === 'light' ? 'bg-[var(--card-bg)] text-black border-black hover:bg-gray-200' : 'bg-[#4a4a4a] text-white border-[#757575] hover:border-white'} p-[8px_12px] rounded-lg cursor-pointer text-sm outline-none transition-[background,border-color] duration-300 [&>option]:bg-white [&>option]:text-black`} 
