@@ -113,7 +113,7 @@ export const translations: Record<string, Translation> = {
     lang: "ar",
     title: "المركز الاسلامي في تبليتسه",
     subtitle: "بوابة المسجد",
-    home: "الالرئيسية",
+    home: "الرئيسية",
     gallery: "معرض الصور",
     contact: "اتصل بنا",
     welcome: "مرحباً بكم في مسجدنا",
