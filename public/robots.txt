@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muslimska-obec-v-teplicich.cz/sitemap.xml
