@@ -81,7 +81,7 @@ body {
 }
 
 .page-content {
-    @apply max-w-[800px] w-full mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-16;
+    @apply max-w-[800px] w-auto mx-4 md:mx-auto p-[40px] max-sm:p-[20px] rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.1)] text-center mb-16;
     background: var(--card-bg);
     overflow: hidden;
 }
