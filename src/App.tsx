@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import Header from './components/Header';
@@ -14,8 +14,25 @@ const MainWrapper = ({ children }: { children: React.ReactNode }) => <main class
 
 function AppContent() {
   const { theme } = useTheme();
-  const { t } = useTranslation();
+  const { lang, t } = useTranslation();
   const location = useLocation();
+
+  useEffect(() => {
+    // 1. Update document title
+    if (lang === 'cs') {
+      document.title = "Muslimská obec v Teplicích";
+    } else if (lang === 'en') {
+      document.title = "Islamic Foundation Teplice";
+    } else if (lang === 'ar') {
+      document.title = "المؤسسة الإسلامية في تبليتسه";
+    }
+
+    // 2. Update document direction
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // 3. Update document language
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const navLinks = useMemo(() => [
     { path: '/', label: t.home },

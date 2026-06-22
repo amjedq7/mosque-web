@@ -19,11 +19,6 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('lang', newLang);
   };
 
-  useEffect(() => {
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-  }, [lang]);
-
   const t = translations[lang] || translations.en;
 
   return (
